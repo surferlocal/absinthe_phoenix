@@ -1,6 +1,5 @@
 defmodule Absinthe.Phoenix.Channel do
   use Phoenix.Channel
-  require Logger
 
   @moduledoc false
 
@@ -56,7 +55,7 @@ defmodule Absinthe.Phoenix.Channel do
 
       {reply, socket} = run_doc(socket, query, config, opts)
 
-      Logger.debug(fn ->
+      Absinthe.Logger.log(:debug, fn ->
         """
         -- Absinthe Phoenix Reply --
         #{inspect(reply)}
